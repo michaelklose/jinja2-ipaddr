@@ -1,0 +1,17 @@
+ip {{ host_v4 | ipaddr('address') }}
+netmask {{ host_v4 | ipaddr('netmask') }}
+network {{ host_v4 | ipaddr('network') }}
+broadcast {{ host_v4 | ipaddr('broadcast') }}
+prefix {{ host_v4 | ipaddr('prefix') }}
+last address {{ host_v4 | ipaddr('-1') }}
+
+# Second /20 subnet
+subnet {{ subnet | ipsubnet(20, 1) }}
+
+# Check if v4 
+host_v4 {{ host_v4 | ipv4 }}
+host_v6 {{ host_v6 | ipv4 }}
+
+# Check if v6
+host_v4 {{ host_v4 | ipv6 }}
+host_v6 {{ host_v6 | ipv6 }}
